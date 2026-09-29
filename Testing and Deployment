@@ -1,0 +1,31 @@
+Testing and Deployment is the final stage of an AI/ML project. Testing checks whether the trained model gives accurate and reliable results using unseen data. After successful testing, the model is deployed so that users or other applications can use it for real-time predictions.
+Simple Python Coding
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+# Dataset
+X = [[1], [2], [3], [4], [5], [6], [7], [8]]
+y = [0, 0, 0, 0, 1, 1, 1, 1]
+
+# Split data for testing
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+
+# Train model
+model = DecisionTreeClassifier()
+model.fit(X_train, y_train)
+
+# Testing
+predictions = model.predict(X_test)
+accuracy = accuracy_score(y_test, predictions)
+
+print("Predictions:", predictions)
+print("Accuracy:", accuracy)
+
+# Deployment / Real-time prediction
+new_data = [[6]]
+result = model.predict(new_data)
+
+print("New Data Prediction:", result[0])
