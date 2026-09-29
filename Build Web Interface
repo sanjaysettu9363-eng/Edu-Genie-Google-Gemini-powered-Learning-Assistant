@@ -1,0 +1,4 @@
+The web interface is the front-end part of the application through which users interact with the system. It provides a simple and user-friendly design for entering data, viewing results, and accessing different features. HTML is used to create the structure, CSS is used for styling, and JavaScript is used to add interactive functionality.
+Simple Coding:
+HTML
+Output: A simple web page with a title, text input area, Submit button, and result message.
