@@ -1,0 +1,47 @@
+Live Integration connects the web interface with the backend and AI model in real time. It allows users to send data from the frontend, process it on the server, and display the generated result immediately. This makes the application interactive and enables real-time communication between the user interface, backend, and AI services.
+Simple Coding:
+# app.py
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route("/process", methods=["POST"])
+def process():
+    data = request.json
+    text = data.get("text", "")
+
+    result = "AI processed: " + text
+
+    return jsonify({"result": result})
+
+if __name__ == "__main__":
+    app.run(debug=True)
+<script>
+async function sendData() {
+    let text = document.getElementById("inputText").value;
+
+    let response = await fetch("/process", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ text: text })
+    });
+
+    let data = await response.json();
+
+    document.getElementById("result").innerHTML =
+        data.result;
+}
+</script>
+
+<input id="inputText" type="text"
+       placeholder="Enter your text">
+
+<button onclick="sendData()">Submit</button>
+
+<p id="result"></p>
+Frontend Integration:
+HTML
+Flow:
+User → Web Interface → Backend API → AI/Processing → Result → Web Interface
