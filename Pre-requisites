@@ -1,0 +1,34 @@
+Model Selection and Architecture is the process of choosing a suitable machine learning model and designing its architecture based on the project requirements. The model is selected by considering factors such as accuracy, dataset size, training time, complexity, and available resources. A suitable architecture helps the system learn patterns efficiently and produce reliable predictions.
+Simple Python Coding
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+# Sample dataset
+X = [[1, 2], [2, 3], [3, 4], [4, 5],
+     [5, 6], [6, 7], [7, 8], [8, 9]]
+
+y = [0, 0, 0, 1, 1, 1, 1, 1]
+
+# Split the dataset
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.25, random_state=42
+)
+
+# Select the model
+model = DecisionTreeClassifier()
+
+# Train the model
+model.fit(X_train, y_train)
+
+# Make predictions
+prediction = model.predict(X_test)
+
+# Check accuracy
+accuracy = accuracy_score(y_test, prediction)
+
+print("Predictions:", prediction)
+print("Accuracy:", accuracy)
+Output:
+Predictions: [1 0]
+Accuracy: 1.0
