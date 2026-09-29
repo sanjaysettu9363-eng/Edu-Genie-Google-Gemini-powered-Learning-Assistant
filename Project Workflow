@@ -1,0 +1,23 @@
+The system follows these steps:
+User Input → Document Upload → Text Extraction → NLP Processing → AI Model → Legal Analysis → Result Generation → User Interface
+Sample Coding
+def legal_document_workflow(document):
+    text = extract_text(document)
+    processed_text = preprocess(text)
+    result = analyze_document(processed_text)
+    return result
+
+def extract_text(document):
+    return document
+
+def preprocess(text):
+    return text.lower()
+
+def analyze_document(text):
+    return {
+        "status": "Analysis completed",
+        "text": text
+    }
+
+document = "Sample legal document"
+print(legal_document_workflow(document))
